@@ -86,11 +86,11 @@ Deve iniciar o cadastro do cliente
 
 Tentativa de pre-cadastro
     [Template]        Attemp signup
-    ${EMPTY}    teste@teste.com    54092703040    Por favor informe o seu nome completo
-    Lorena Cecilio    ${EMPTY}    54092703040     Por favor, informe o seu melhor e-mail
-    Lorena Cecilio    teste@teste.com    ${EMPTY}    Por favor, informe o seu CPF
-    Lorena Cecilio    teste*teste.com    54092703040    Oops! O email informado é inválido
-    Lorena Cecilio    teste@teste.com    5409270304a    Oops! O CPF informado é inválido
+    ${EMPTY}          teste@teste.com    54092703040     Por favor informe o seu nome completo
+    Lorena Cecilio    ${EMPTY}           54092703040     Por favor, informe o seu melhor e-mail
+    Lorena Cecilio    teste@teste.com    ${EMPTY}        Por favor, informe o seu CPF
+    Lorena Cecilio    teste*teste.com    54092703040     Oops! O email informado é inválido
+    Lorena Cecilio    teste@teste.com    5409270304a     Oops! O CPF informado é inválido
 
 *** Keywords ***
 Attemp signup
