@@ -15,7 +15,7 @@ Deve iniciar o cadastro do cliente
     Submit signup form    ${account}
     Verify welcome message
 
-# Campo nome deve ser obrigatorio
+# Campo nome deve ser obrigatorio teste
 #     #Com essa Tag executa somente os casos de teste que a possuem. Na hora de executar precisa digitar
 #     #robot -d ./logs -i required tests/signup.robot
 #     [Tags]    required
