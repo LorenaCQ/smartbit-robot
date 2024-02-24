@@ -15,6 +15,7 @@ Deve poder realizar uma nova adesao
 
     Go to Enrolls
     Go to enroll form
+    Select account    Lorena Cecilio    80564750018
 
 *** Keywords ***
 Go to Enrolls
@@ -27,3 +28,12 @@ Go to enroll form
     Click    css=a[href="/memberships/new"]
     Wait For Elements State    css=h1 >> text=Nova matrícula
     ...    visible    5
+
+Select account
+    [Arguments]    ${name}    ${cpf}
+
+    Fill Text    css=input[aria-label=select_account]    	${name}
+    Click        css=[data-testid="${cpf}"]
+
+    Sleep    5
+
