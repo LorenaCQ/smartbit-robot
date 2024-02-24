@@ -9,18 +9,27 @@ Test Teardown    Take Screenshot
 *** Test Cases ***
 
 Deve poder realizar uma nova adesao
+
+    ${account}    Create Dictionary
+    ...           name=Paulo Cintura
+    ...           email=paulo@teste.com
+    ...           cpf=26189490050
+    
+    Delete Account By Email    ${account}[email]
+    Insert Account    ${account}
+
     Go to login page
     Submit login form    sac@smartbit.com    pwd123
     User is logged in    sac@smartbit.com
 
     Go to Enrolls
     Go to enroll form
-    Select account    Lorena Cecilio    80564750018
+    Select account    Paulo Cintura    26189490050
 
     Select plan     Plano Black
     Fill payment card    
     ...               4242424242424242    
-    ...               Lorena Cecilio    
+    ...               Paulo Cintura
     ...               12    
     ...               2030    
     ...               123
