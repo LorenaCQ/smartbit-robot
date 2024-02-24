@@ -27,3 +27,10 @@ Nao deve logar com email não cadastrado
     Submit login form    404@smartbit.com    abc123
 
     Toast should be    As credenciais de acesso fornecidas são inválidas. Tente novamente!
+
+*** Keywords ***
+Login With verify notice
+    [Arguments]    ${email}    ${password}    ${output_message}
+
+    Go to login page
+    Submit login form    $email    $password
