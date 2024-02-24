@@ -15,6 +15,15 @@ Deve poder realizar uma nova adesao
     ...           email=paulo@teste.com
     ...           cpf=26189490050
     
+    ${plan}    Set Variable    Plano Black
+
+    ${credit_card}    Create Dictionary
+    ...    number=4242424242424242
+    ...    holder=Paulo Cintura
+    ...    month=12
+    ...    year=2023
+    ...    cvv=123
+    
     Delete Account By Email    ${account}[email]
     Insert Account    ${account}
 
@@ -22,17 +31,12 @@ Deve poder realizar uma nova adesao
     Submit login form    sac@smartbit.com    pwd123
     User is logged in    sac@smartbit.com
 
-    Go to Enrolls
+    Go to memberships
     Go to enroll form
-    Select account    Paulo Cintura    26189490050
+    Select account          ${account}[name]    ${account}[cpf]
 
-    Select plan     Plano Black
-    Fill payment card    
-    ...               4242424242424242    
-    ...               Paulo Cintura
-    ...               12    
-    ...               2030    
-    ...               123
+    Select plan             ${plan}
+    Fill payment card       ${credit_card}
     
     Click    css=button[type=submit] >> text=Cadastrar
 
@@ -41,7 +45,7 @@ Deve poder realizar uma nova adesao
     Sleep    5
 
 *** Keywords ***
-Go to Enrolls
+Go to memberships
     Click    css=a[href="/memberships"]
 
     Wait For Elements State    css=h1 >> text=Matrículas
@@ -65,10 +69,10 @@ Select plan
     Click    css=div[class$=option] >> text=${plan_name}
 
 Fill payment card
-    [Arguments]    ${number}    ${holder}    ${month}    ${year}    ${cvv}
+    [Arguments]    ${card}
 
-    Fill Text    css=input[name=card_number]    ${number}
-    Fill Text    css=input[name=card_holder]    ${holder}
-    Fill Text    css=input[name=card_month]     ${month}
-    Fill Text    css=input[name=card_year]      ${year}
-    Fill Text    css=input[name=card_cvv]       ${cvv}
+    Fill Text    css=input[name=card_number]    ${card}[number]
+    Fill Text    css=input[name=card_holder]    ${card}[holder]
+    Fill Text    css=input[name=card_month]     ${card}[month]
+    Fill Text    css=input[name=card_year]      ${card}[year]
+    Fill Text    css=input[name=card_cvv]       ${card}[cvv]
