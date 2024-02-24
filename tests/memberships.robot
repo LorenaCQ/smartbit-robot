@@ -10,22 +10,10 @@ Test Teardown    Take Screenshot
 
 Deve poder realizar uma nova adesao
 
-    ${account}    Create Dictionary
-    ...           name=Paulo Cintura
-    ...           email=paulo@teste.com
-    ...           cpf=26189490050
+    ${data}    Get json fixture    memberships   create
     
-    ${plan}    Set Variable    Plano Black
-
-    ${credit_card}    Create Dictionary
-    ...    number=4242424242424242
-    ...    holder=Paulo Cintura
-    ...    month=12
-    ...    year=2023
-    ...    cvv=123
-    
-    Delete Account By Email    ${account}[email]
-    Insert Account    ${account}
+    Delete Account By Email    ${data}[account][email]
+    Insert Account    ${data}[account]
 
     Go to login page
     Submit login form    sac@smartbit.com    pwd123
@@ -33,10 +21,10 @@ Deve poder realizar uma nova adesao
 
     Go to memberships
     Go to enroll form
-    Select account          ${account}[name]    ${account}[cpf]
+    Select account          ${data}[account][name]    ${data}[account][cpf]
 
-    Select plan             ${plan}
-    Fill payment card       ${credit_card}
+    Select plan             ${data}[plan]
+    Fill payment card       ${data}[credit_card]
     
     Click    css=button[type=submit] >> text=Cadastrar
 
