@@ -17,10 +17,14 @@ Deve poder realizar uma nova adesao
     Go to enroll form
     Select account    Lorena Cecilio    80564750018
 
-    Fill Text    css=input[aria-label=select_plan]    	Plano Black
-    #Click    css=div[id*=option] >> text=Plano Black
-    Click    css=div[class$=option] >> text=Plano Black
-
+    Select plan     Plano Black
+    Fill payment card    
+    ...               4242424242424242    
+    ...               Lorena Cecilio    
+    ...               12    
+    ...               2030    
+    ...               123
+    
     Sleep    5
 
 *** Keywords ***
@@ -41,3 +45,17 @@ Select account
     Fill Text    css=input[aria-label=select_account]    	${name}
     Click        css=[data-testid="${cpf}"]
 
+Select plan
+    [Arguments]    ${plan_name}
+    Fill Text    css=input[aria-label=select_plan]    	${plan_name}
+    #Click    css=div[id*=option] >> text=${plan_name}
+    Click    css=div[class$=option] >> text=${plan_name}
+
+Fill payment card
+    [Arguments]    ${number}    ${holder}    ${month}    ${year}    ${cvv}
+
+    Fill Text    css=input[name=card_number]    ${number}
+    Fill Text    css=input[name=card_holder]    ${holder}
+    Fill Text    css=input[name=card_month]     ${month}
+    Fill Text    css=input[name=card_year]      ${year}
+    Fill Text    css=input[name=card_cvv]       ${cvv}
