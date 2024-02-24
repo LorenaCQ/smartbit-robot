@@ -14,10 +14,16 @@ Deve poder realizar uma nova adesao
     User is logged in    sac@smartbit.com
 
     Go to Enrolls
+    Go to enroll form
 
 *** Keywords ***
 Go to Enrolls
     Click    css=a[href="/memberships"]
 
     Wait For Elements State    css=h1 >> text=Matrículas
+    ...    visible    5
+
+Go to enroll form
+    Click    css=a[href="/memberships/new"]
+    Wait For Elements State    css=h1 >> text=Nova matrícula
     ...    visible    5
