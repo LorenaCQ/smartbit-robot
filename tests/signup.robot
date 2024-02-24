@@ -9,8 +9,13 @@ Test Teardown    Take Screenshot
 *** Test Cases ***
 Deve iniciar o cadastro do cliente
     #PREPARACAO
-
-    ${account}    Get Fake Account
+    [Tags]    smoke
+    ${account}    Create Dictionary
+    ...    name=Lorena Cecilio
+    ...    email=teste@teste.com
+    ...    cpf=80564750018
+        
+    Delete Account By Email    ${account}[email]
 
     Submit signup form    ${account}
     Verify welcome message
