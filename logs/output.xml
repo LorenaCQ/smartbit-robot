@@ -1,125 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-02-24T16:47:10.424433" rpa="false" schemaversion="5">
-<suite id="s1" name="Signup" source="C:\QAx\projects\smartbit-robot\tests\signup.robot">
-<test id="s1-t1" name="Deve iniciar o cadastro do cliente" line="10">
+<robot generator="Robot 7.0 (Python 3.12.2 on win32)" generated="2024-02-24T17:14:44.226117" rpa="false" schemaversion="5">
+<suite id="s1" name="Enrolls" source="C:\QAx\projects\smartbit-robot\tests\enrolls.robot">
+<test id="s1-t1" name="Deve poder realizar uma nova adesao" line="11">
 <kw name="Start session" owner="Base" type="SETUP">
 <kw name="New Browser" owner="Browser">
-<msg time="2024-02-24T16:47:11.553898" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\smartbit-robot\\logs\\browser\\traces\\62c425ba-23fc-4ff0-b9c1-8fab4a7e1ce4"}</msg>
-<msg time="2024-02-24T16:47:12.007402" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\smartbit-robot\\logs\\browser\\traces\\62c425ba-23fc-4ff0-b9c1-8fab4a7e1ce4"}</msg>
+<msg time="2024-02-24T17:14:45.313954" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\QAx\\projects\\smartbit-robot\\logs\\browser\\traces\\8613d2bc-b14a-4b7c-aa19-b8c385f86304"}</msg>
+<msg time="2024-02-24T17:14:45.769755" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\QAx\\projects\\smartbit-robot\\logs\\browser\\traces\\8613d2bc-b14a-4b7c-aa19-b8c385f86304"}</msg>
 <arg>browser=chromium</arg>
 <arg>headless=False</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Create a new playwright Browser with specified options.</doc>
-<status status="PASS" start="2024-02-24T16:47:11.552901" elapsed="0.454501"/>
+<status status="PASS" start="2024-02-24T17:14:45.312955" elapsed="0.456800"/>
 </kw>
 <kw name="New Page" owner="Browser">
-<msg time="2024-02-24T16:47:12.937951" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
-<msg time="2024-02-24T16:47:12.938912" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
+<msg time="2024-02-24T17:14:46.879787" level="INFO">Successfully initialized new page object and opened url: http://localhost:3000</msg>
+<msg time="2024-02-24T17:14:46.879787" level="INFO">No context was open. New context was automatically opened when this page is created.</msg>
 <arg>http://localhost:3000</arg>
 <tag>BrowserControl</tag>
 <tag>Setter</tag>
 <doc>Open a new Page.</doc>
-<status status="PASS" start="2024-02-24T16:47:12.008400" elapsed="0.930512"/>
+<status status="PASS" start="2024-02-24T17:14:45.770752" elapsed="1.110031"/>
 </kw>
-<status status="PASS" start="2024-02-24T16:47:11.551907" elapsed="1.387005"/>
+<status status="PASS" start="2024-02-24T17:14:45.312955" elapsed="1.567828"/>
 </kw>
-<kw name="Create Dictionary" owner="BuiltIn">
-<msg time="2024-02-24T16:47:12.939909" level="INFO">${account} = {'name': 'Lorena Cecilio', 'email': 'teste@teste.com', 'cpf': '80564750018'}</msg>
-<var>${account}</var>
-<arg>name=Lorena Cecilio</arg>
-<arg>email=teste@teste.com</arg>
-<arg>cpf=80564750018</arg>
-<doc>Creates and returns a dictionary based on the given ``items``.</doc>
-<status status="PASS" start="2024-02-24T16:47:12.938912" elapsed="0.000997"/>
+<kw name="Go to login page" owner="Login">
+<kw name="Go To" owner="Browser">
+<msg time="2024-02-24T17:14:47.089228" level="INFO">Successfully opened URL http://localhost:3000/login</msg>
+<arg>http://localhost:3000/login</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2024-02-24T17:14:46.882777" elapsed="0.207446"/>
 </kw>
-<kw name="Delete Account By Email" owner="Database">
-<arg>${account}[email]</arg>
-<status status="PASS" start="2024-02-24T16:47:12.939909" elapsed="0.361910"/>
+<status status="PASS" start="2024-02-24T17:14:46.881781" elapsed="0.208442"/>
 </kw>
-<kw name="Submit signup form" owner="Landing">
-<kw name="Get Text" owner="Browser">
-<msg time="2024-02-24T16:47:13.381190" level="INFO">Text: 'Faça seu cadastro e venha para a Smartbit!'</msg>
-<arg>css=#signup h2</arg>
-<arg>equal</arg>
-<arg>Faça seu cadastro e venha para a Smartbit!</arg>
-<tag>Assertion</tag>
-<tag>Getter</tag>
-<tag>PageContent</tag>
-<doc>Returns text attribute of the element found by ``selector``.</doc>
-<status status="PASS" start="2024-02-24T16:47:13.302671" elapsed="0.078519"/>
-</kw>
+<kw name="Submit login form" owner="Login">
 <kw name="Fill Text" owner="Browser">
-<msg time="2024-02-24T16:47:13.382186" level="INFO">Fills the text 'Lorena Cecilio' in the given field.</msg>
-<arg>id=name</arg>
-<arg>${account}[name]</arg>
+<msg time="2024-02-24T17:14:47.092219" level="INFO">Fills the text 'sac@smartbit.com' in the given field.</msg>
+<arg>css=input[name=email]</arg>
+<arg>${email}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-02-24T16:47:13.381190" elapsed="0.030041"/>
+<status status="PASS" start="2024-02-24T17:14:47.091221" elapsed="0.094748"/>
 </kw>
 <kw name="Fill Text" owner="Browser">
-<msg time="2024-02-24T16:47:13.411231" level="INFO">Fills the text 'teste@teste.com' in the given field.</msg>
-<arg>id=email</arg>
-<arg>${account}[email]</arg>
+<msg time="2024-02-24T17:14:47.185969" level="INFO">Fills the text 'pwd123' in the given field.</msg>
+<arg>css=input[name=password]</arg>
+<arg>${password}</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-02-24T16:47:13.411231" elapsed="0.023902"/>
-</kw>
-<kw name="Fill Text" owner="Browser">
-<msg time="2024-02-24T16:47:13.436128" level="INFO">Fills the text '80564750018' in the given field.</msg>
-<arg>id=cpf</arg>
-<arg>${account}[cpf]</arg>
-<tag>PageContent</tag>
-<tag>Setter</tag>
-<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
-<status status="PASS" start="2024-02-24T16:47:13.436128" elapsed="0.018981"/>
+<status status="PASS" start="2024-02-24T17:14:47.185969" elapsed="0.023934"/>
 </kw>
 <kw name="Click" owner="Browser">
-<arg>css=button &gt;&gt; text=Cadastrar</arg>
+<arg>css=button &gt;&gt; text=Entrar</arg>
 <tag>PageContent</tag>
 <tag>Setter</tag>
 <doc>Simulates mouse click on the element found by ``selector``.</doc>
-<status status="PASS" start="2024-02-24T16:47:13.455109" elapsed="0.107431"/>
+<status status="PASS" start="2024-02-24T17:14:47.209903" elapsed="0.096842"/>
 </kw>
-<arg>${account}</arg>
-<status status="PASS" start="2024-02-24T16:47:13.302671" elapsed="0.260866"/>
+<arg>sac@smartbit.com</arg>
+<arg>pwd123</arg>
+<status status="PASS" start="2024-02-24T17:14:47.090223" elapsed="0.216522"/>
 </kw>
-<kw name="Verify welcome message" owner="Welcome">
+<kw name="User is logged in" owner="Accounts">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-02-24T17:14:47.308759" level="INFO">${element} = css=.logged-user</msg>
+<var>${element}</var>
+<arg>css=.logged-user</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-02-24T17:14:47.307740" elapsed="0.001019"/>
+</kw>
 <kw name="Wait For Elements State" owner="Browser">
-<msg time="2024-02-24T16:47:16.004029" level="INFO">Waited for Element with selector text=Falta pouco para fazer parte da família Smartbit! at state visible</msg>
-<arg>text=Falta pouco para fazer parte da família Smartbit!</arg>
+<msg time="2024-02-24T17:14:48.699977" level="INFO">Waited for Element with selector css=.logged-user at state visible</msg>
+<arg>${element}</arg>
 <arg>visible</arg>
 <arg>5</arg>
 <tag>PageContent</tag>
 <tag>Wait</tag>
 <doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
-<status status="PASS" start="2024-02-24T16:47:13.564533" elapsed="2.439496"/>
+<status status="PASS" start="2024-02-24T17:14:47.308759" elapsed="1.391218"/>
 </kw>
-<status status="PASS" start="2024-02-24T16:47:13.564533" elapsed="2.439496"/>
+<kw name="Get Text" owner="Browser">
+<msg time="2024-02-24T17:14:48.737294" level="INFO">Text: 'sac@smartbit.com'</msg>
+<arg>${element}</arg>
+<arg>equal</arg>
+<arg>${email}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-24T17:14:48.699977" elapsed="0.038349"/>
+</kw>
+<arg>sac@smartbit.com</arg>
+<status status="PASS" start="2024-02-24T17:14:47.307740" elapsed="1.430586"/>
+</kw>
+<kw name="Go to Enrolls">
+<kw name="Click" owner="Browser">
+<arg>css=a[href="/memberships"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2024-02-24T17:14:48.738890" elapsed="0.083555"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2024-02-24T17:14:48.832727" level="INFO">Waited for Element with selector css=h1 &gt;&gt; text=Matrículas at state visible</msg>
+<arg>css=h1 &gt;&gt; text=Matrículas</arg>
+<arg>visible</arg>
+<arg>5</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2024-02-24T17:14:48.823442" elapsed="0.010282"/>
+</kw>
+<status status="PASS" start="2024-02-24T17:14:48.738890" elapsed="0.094834"/>
 </kw>
 <kw name="Take Screenshot" owner="Browser" type="TEARDOWN">
-<msg time="2024-02-24T16:47:16.283003" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
+<msg time="2024-02-24T17:14:49.054673" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/robotframework-browser-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/robotframework-browser-screenshot-1.png" width="800px"/&gt;&lt;/a&gt;</msg>
 <tag>PageContent</tag>
 <doc>Takes a screenshot of the current window or element and saves it to disk.</doc>
-<status status="PASS" start="2024-02-24T16:47:16.005374" elapsed="0.278632"/>
+<status status="PASS" start="2024-02-24T17:14:48.834326" elapsed="0.220347"/>
 </kw>
-<tag>smoke</tag>
-<status status="PASS" start="2024-02-24T16:47:11.548915" elapsed="4.736078"/>
+<status status="PASS" start="2024-02-24T17:14:45.308914" elapsed="3.745759"/>
 </test>
-<doc>Cenarios de testes de pre-cadastro de clientes</doc>
-<status status="PASS" start="2024-02-24T16:47:10.425431" elapsed="5.953310"/>
+<doc>Suite de testes de adesoes de planos</doc>
+<status status="PASS" start="2024-02-24T17:14:44.227115" elapsed="4.910802"/>
 </suite>
 <statistics>
 <total>
 <stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="1" fail="0" skip="0">smoke</stat>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Signup">Signup</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Enrolls">Enrolls</stat>
 </suite>
 </statistics>
 <errors>
