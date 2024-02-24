@@ -25,6 +25,10 @@ Deve poder realizar uma nova adesao
     ...               2030    
     ...               123
     
+    Click    css=button[type=submit] >> text=Cadastrar
+
+    Toast should be    Matrícula cadastrada com sucesso.
+    
     Sleep    5
 
 *** Keywords ***
