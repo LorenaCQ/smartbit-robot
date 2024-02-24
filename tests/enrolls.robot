@@ -17,6 +17,12 @@ Deve poder realizar uma nova adesao
     Go to enroll form
     Select account    Lorena Cecilio    80564750018
 
+    Fill Text    css=input[aria-label=select_plan]    	Plano Black
+    #Click    css=div[id*=option] >> text=Plano Black
+    Click    css=div[class$=option] >> text=Plano Black
+
+    Sleep    5
+
 *** Keywords ***
 Go to Enrolls
     Click    css=a[href="/memberships"]
@@ -34,6 +40,4 @@ Select account
 
     Fill Text    css=input[aria-label=select_account]    	${name}
     Click        css=[data-testid="${cpf}"]
-
-    Sleep    5
 
