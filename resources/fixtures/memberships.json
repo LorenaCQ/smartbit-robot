@@ -5,7 +5,11 @@
             "email": "paulo@teste.com",
             "cpf": 26189490050
         },
-        "plan": "Plano Black",
+        "plan": {
+            "name": "Plano Black",
+            "id": 2,
+            "price": 79.99
+        },
         "credit_card": {
             "number": "4242424242424242",
             "holder":"Paulo Cintura",
@@ -20,10 +24,33 @@
             "email": "jonas@teste.com",
             "cpf": 98593940080
         },
-        "plan": "Plano Smart",
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price": 99.99
+        },
         "credit_card": {
             "number": "4242424242424242",
             "holder":"Jonas Brothers",
+            "month": "12",
+            "year": "2030",
+            "cvv": 123
+        }
+    },
+    "search": {
+        "account": {
+            "name": "Mariana da Silva",
+            "email": "mariana@teste.com",
+            "cpf": 57841896034
+        },
+        "plan": {
+            "name": "Plano Smart",
+            "id": 1,
+            "price": 99.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder":"Mariana da Silva",
             "month": "12",
             "year": "2030",
             "cvv": 123

@@ -9,7 +9,7 @@ Create new membership
 
     Go to memberships form
     Select account          ${data}[account][name]    ${data}[account][cpf]
-    Select plan             ${data}[plan]
+    Select plan             ${data}[plan][name]
     Fill payment card       ${data}[credit_card]
 
     Click    css=button[type=submit] >> text=Cadastrar
@@ -39,3 +39,16 @@ Fill payment card
     Fill Text    css=input[name=card_month]     ${card}[month]
     Fill Text    css=input[name=card_year]      ${card}[year]
     Fill Text    css=input[name=card_cvv]       ${card}[cvv]
+
+Search by name
+    [Arguments]    ${name}
+
+    Fill Text    css=input[placeholder^=Busque]    ${name}
+    Wait For Elements State    css=strong >> text=Total: 1
+    ...    visible    5
+
+Should filter by name
+    [Arguments]    ${name}
+
+     Wait For Elements State    css=table tbody tr >> text=${name}
+    ...    visible    5
