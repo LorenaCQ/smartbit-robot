@@ -55,5 +55,24 @@
             "year": "2030",
             "cvv": 123
         }
+    },
+    "remove": {
+        "account": {
+            "name": "Felipe Albuquerque",
+            "email": "felipe@teste.com",
+            "cpf": 86638317067
+        },
+        "plan": {
+            "name": "Plano Black",
+            "id": 2,
+            "price": 79.99
+        },
+        "credit_card": {
+            "number": "4242424242424242",
+            "holder":"Felipe Albuquerque",
+            "month": "12",
+            "year": "2030",
+            "cvv": 123
+        }
     }
 }
